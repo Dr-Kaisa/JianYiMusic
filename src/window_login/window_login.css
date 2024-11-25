@@ -1,0 +1,8 @@
+#Window_login {
+    background-color: #eee3e3;
+    /*background-color: red;*/
+}
+
+#Window_login QPushButton {
+    background-color: #ffc7c7;
+}

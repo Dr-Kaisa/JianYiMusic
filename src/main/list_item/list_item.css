@@ -1,0 +1,14 @@
+#List_item {
+    /*margin-bottom: 10px;*/
+    height: 20;
+    background-color: pink;
+}
+
+#List_item:pressed {
+    background-color: red;
+}
+
+/*QWidget#favo :pressed {*/
+/*    !*background-color: pink;*!*/
+/*    border: 1px solid black;*/
+/*}*/

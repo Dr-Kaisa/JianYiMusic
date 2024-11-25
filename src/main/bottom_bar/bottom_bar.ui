@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+    <class>Bottom_bar</class>
+    <widget class="QWidget" name="Bottom_bar">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+            <property name="spacing">
+                <number>80</number>
+            </property>
+            <property name="topMargin">
+                <number>20</number>
+            </property>
+            <item>
+                <spacer name="spacer1">
+                    <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                        <size>
+                            <width>40</width>
+                            <height>200</height>
+                        </size>
+                    </property>
+                </spacer>
+            </item>
+            <item>
+                <widget class="QLabel" name="favo">
+
+
+                </widget>
+            </item>
+            <item>
+                <widget class="QLabel" name="last">
+
+                </widget>
+            </item>
+            <item>
+                <widget class="QLabel" name="pause">
+
+                </widget>
+            </item>
+            <item>
+                <widget class="QLabel" name="next">
+
+                </widget>
+            </item>
+            <item>
+                <widget class="QLabel" name="circle">
+                   
+                </widget>
+            </item>
+            <item>
+                <spacer name="spacer2">
+                    <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                        <size>
+                            <width>40</width>
+                            <height>200</height>
+                        </size>
+                    </property>
+                </spacer>
+            </item>
+        </layout>
+    </widget>
+    <resources/>
+    <connections/>
+</ui>

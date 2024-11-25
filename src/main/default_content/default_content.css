@@ -1,0 +1,22 @@
+QWidget#icon {
+    min-width: 200;
+    min-height: 200;
+    background-image: url(":/icon/add_file");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+QWidget#label {
+    min-width: 600;
+    min-height: 200;
+    color: lightgray;
+    font-size: 100px;
+}
+
+QWidget QPushButton {
+    background-color: #ffe2e2;
+}
+
+QWidget QPushButton:pressed {
+    background-color: #eed1d1;
+}

@@ -1,0 +1,23 @@
+# ninja log v6
+12	595	7541690050950013	musicApp_autogen/timestamp	a933c156aff1a54e
+1186	3655	7541664272546544	CMakeFiles/musicApp.dir/src/window_register/window_register.cpp.obj	f2777c1a26951377
+12	595	7541690050950013	musicApp_autogen/mocs_compilation.cpp	a933c156aff1a54e
+3509	4510	7541690080884719	musicApp.exe	e80b0a26d84e18f7
+595	3239	7541690051738400	CMakeFiles/musicApp.dir/musicApp_autogen/mocs_compilation.cpp.obj	91c1f51eaafc7e11
+609	3335	7541690051888632	CMakeFiles/musicApp.dir/main.cpp.obj	853f023304095b61
+2	507	7541998047234020	build.ninja	79da815c4f0e85a1
+246	339	7541674166769364	musicApp_autogen/3YJK5W5UP7/qrc_resources.cpp	7e3054da1fb005df
+354	593	7541674166975333	CMakeFiles/musicApp.dir/musicApp_autogen/3YJK5W5UP7/qrc_resources.cpp.obj	e1d02b09d3ec3f1
+1215	3812	7541664272845747	CMakeFiles/musicApp.dir/src/main/side_bar/side_bar.cpp.obj	fd28a5f4445b6af1
+12	595	7541690050950013	C:/Users/18160/Documents/myQt/musicApp/cmake-build-debug/musicApp_autogen/mocs_compilation.cpp	a933c156aff1a54e
+624	3344	7541690052028261	CMakeFiles/musicApp.dir/src/window_login/window_login.cpp.obj	18c46eac2f2b3ea6
+639	3509	7541690052178151	CMakeFiles/musicApp.dir/src/window_main/window_main.cpp.obj	77882c0546d2d7cc
+12	595	7541690050950013	C:/Users/18160/Documents/myQt/musicApp/cmake-build-debug/musicApp_autogen/timestamp	a933c156aff1a54e
+246	339	7541674166769364	C:/Users/18160/Documents/myQt/musicApp/cmake-build-debug/musicApp_autogen/3YJK5W5UP7/qrc_resources.cpp	7e3054da1fb005df
+1247	3431	7541664273154918	CMakeFiles/musicApp.dir/src/main/myfavo_list/myfavo_list.cpp.obj	af838a9b686165ae
+655	3258	7541690052337429	CMakeFiles/musicApp.dir/src/main/local_list/local_list.cpp.obj	f24e17fd9122f865
+1231	3777	7541664272995348	CMakeFiles/musicApp.dir/src/main/top_bar/top_bar.cpp.obj	fdcda67b83450b94
+671	2559	7541690052497011	CMakeFiles/musicApp.dir/src/main/list_item/list_item.cpp.obj	4d4b41d9ff3c4aca
+3431	5451	7541664295009874	CMakeFiles/musicApp.dir/src/main/bottom_bar/bottom_bar.cpp.obj	71d191e56fd80cb
+3655	4620	7541664297240432	CMakeFiles/musicApp.dir/src/main/list_item/Song.cpp.obj	26eab845ce70d2af
+3692	5623	7541664297609431	CMakeFiles/musicApp.dir/src/main/default_content/default_content.cpp.obj	4e58049579bdc4fe
