@@ -50,6 +50,7 @@ Window_main::Window_main(QWidget *parent) : QStackedWidget(parent), ui(new Ui::W
     bottom_bar = new Bottom_bar(this);
     // this->setFocusPolicy(Qt::StrongFocus);
     connect(default_content, &Default_content::mySig, this, &Window_main::getMusic);
+    connect(local_list, &Local_list::tranSig, this, &Window_main::play);
     load_config();
 }
 
@@ -62,7 +63,9 @@ void Window_main::load_config() {
     YAML::Node config = YAML::LoadFile("user.yaml");
     userName = QString::fromStdString(config["userName"].as<std::string>());
     top_bar->setUserName(userName);
-    if (config["songs"].IsDefined()) {
+    if (config["songPath"].IsDefined()) {
+        songPath = QString::fromStdString(config["songPath"].as<std::string>());
+        getMusic(songPath);
         container->setCurrentIndex(1);
     } else {
         container->setCurrentIndex(0);
@@ -99,12 +102,17 @@ void Window_main::resizeWindow(double width, double height) {
     bottom_bar->setGeometry(0, 85 * h, 100 * w, 15 * h);
 }
 
+//将歌曲信息载入到yaml文件和内存
 void Window_main::getMusic(QString path) {
     // 创建 YAML::Emitter 对象
-    YAML::Emitter out;
+    YAML::Node config = YAML::LoadFile("user.yaml");
+    // 清空数组,重新载入
+    if (config["songs"] && config["songs"].IsSequence()) {
+        qDebug() << "clear";
+        config.remove("songs");
+    }
     // 开始生成 YAML 内容
-    out << YAML::BeginMap;
-    out << YAML::Key << "songs" << YAML::BeginSeq;
+    YAML::Node items = YAML::Node(YAML::NodeType::Sequence);
     QDirIterator it(path, QDir::Files, QDirIterator::Subdirectories);
     while (it.hasNext()) {
         QString songPath = it.next().trimmed();
@@ -115,21 +123,28 @@ void Window_main::getMusic(QString path) {
         // 分割文件名（假设格式为 "歌手 - 歌曲名"）
         QStringList parts = fileName.split(" - ");
 
-
+        //添加节点
         if (parts.size() == 2) {
             QString author = parts[0]; // 歌手
             QString title = parts[1]; // 歌曲名
-            out << YAML::BeginMap;
-            out << YAML::Key << "author" << YAML::Value << author.toStdString();
-            out << YAML::Key << "title" << YAML::Value << title.toStdString();
-            out << YAML::Key << "path" << YAML::Value << songPath.toStdString();
-            out << YAML::EndMap;
+            YAML::Node item;
+            item["author"] = author.toStdString();
+            item["title"] = title.toStdString();
+            item["path"] = songPath.toStdString();
+            items.push_back(item);
+            songs.append(Song(title, author, songPath, false));
         } else {
             qDebug() << "Invalid format, unable to extract info.";
         }
     }
-    std::ofstream fout("user.yaml", std::ios::app);
-    fout << out.c_str() << std::endl; // 将生成的 YAML 内容写入文件
+    config["songs"] = items;
+    // 写回修改后的数据到文件
+    std::ofstream fout("user.yaml");
+    fout << config;
     fout.close();
+}
+
+void Window_main::play(Song song) {
+    qDebug() << song.get_author();
 }
 

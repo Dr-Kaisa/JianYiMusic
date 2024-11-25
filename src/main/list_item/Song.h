@@ -28,6 +28,10 @@ public:
     Song(QString title, QString author, QString path, bool favo);
 
     Song(QString title);
+
+    friend uint qHash(const Song &song, uint seed);
+
+    bool operator==(const Song &other) const;
 };
 
 

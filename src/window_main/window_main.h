@@ -52,18 +52,21 @@ private slots:
 
     void getMusic(QString path);
 
+    void play(Song song);
+
 private:
-    Ui::Window_main *ui;
-    Side_bar *side_bar;
-    Top_bar *top_bar;
-    Bottom_bar *bottom_bar;
+    Ui::Window_main *ui = nullptr;
+    Side_bar *side_bar = nullptr;
+    Top_bar *top_bar = nullptr;
+    Bottom_bar *bottom_bar = nullptr;
     double vh;
     double vw;
     bool resizeEnabled = true;
-    QTimer *resizeTimer;;
-    QStackedWidget *container;
-    QMultiMap<QString, Song> songs; //保存所以歌曲信息
+    QTimer *resizeTimer = nullptr;
+    QStackedWidget *container = nullptr;
+    QList<Song> songs; //保存所以歌曲信息
     QString userName;
+    QString songPath;
 };
 
 

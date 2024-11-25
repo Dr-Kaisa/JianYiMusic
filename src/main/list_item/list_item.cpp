@@ -94,8 +94,8 @@ void List_item::mousePressEvent(QMouseEvent *event) {
     QWidget::mousePressEvent(event); // 保留父类的处理
 }
 
+// 收藏区域松开则改变收藏图标，，否者恢复样式
 void List_item::mouseReleaseEvent(QMouseEvent *event) {
-    // 收藏区域松开则改变收藏图标，，否者恢复样式
     if (ui->favo->geometry().contains(event->pos())) {
         changeFavo = true;
         update();
@@ -109,4 +109,8 @@ void List_item::mouseReleaseEvent(QMouseEvent *event) {
     QWidget::mouseReleaseEvent(event); // 保留父类的处理
 }
 
+//双击播放
+void List_item::mouseDoubleClickEvent(QMouseEvent *event) {
+    emit songSig(song);
+}
 

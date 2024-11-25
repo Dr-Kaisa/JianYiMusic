@@ -31,8 +31,13 @@ public:
 
     void mouseReleaseEvent(QMouseEvent *event) override;
 
+    void mouseDoubleClickEvent(QMouseEvent *event) override;
 
     ~List_item() override;
+
+signals:
+    void songSig(Song song);
+
 
     // public slots:
     //     void on_pushButton_cliked();

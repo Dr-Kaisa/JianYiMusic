@@ -1,12 +1,10 @@
 loginType: Guest
 userName: 游客
+songPath: C:/Users/18160/Music
 songs:
   - author: 莫文蔚
     title: 慢慢喜欢你
     path: C:/Users/18160/Music/莫文蔚 - 慢慢喜欢你.mp3
-  - author: 鎖那
-    title: 彼女は旅に出る
-    path: C:/Users/18160/Music/鎖那 - 彼女は旅に出る.mp3
   - author: 高姗
     title: 遇见你的时候所有星星都落到我头上
     path: C:/Users/18160/Music/高姗 - 遇见你的时候所有星星都落到我头上.mp3

@@ -29,6 +29,12 @@ public:
 
     void load_songs();
 
+signals:
+    void tranSig(Song song);
+
+public slots:
+    void tranSlots(Song song);
+
 private:
     Ui::Local_list *ui;
     int counter = 0; //计数器
