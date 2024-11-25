@@ -14,6 +14,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -23,7 +24,9 @@ class Ui_List_item
 public:
     QHBoxLayout *verticalLayout;
     QLabel *num;
-    QLabel *tittle;
+    QVBoxLayout *verticalLayout_2;
+    QLabel *title;
+    QLabel *author;
     QSpacerItem *verticalSpacer;
     QSpacerItem *verticalSpacer_2;
     QSpacerItem *verticalSpacer_3;
@@ -33,6 +36,7 @@ public:
     {
         if (List_item->objectName().isEmpty())
             List_item->setObjectName(QString::fromUtf8("List_item"));
+        List_item->resize(358, 60);
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -47,10 +51,20 @@ public:
 
         verticalLayout->addWidget(num);
 
-        tittle = new QLabel(List_item);
-        tittle->setObjectName(QString::fromUtf8("tittle"));
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        title = new QLabel(List_item);
+        title->setObjectName(QString::fromUtf8("title"));
 
-        verticalLayout->addWidget(tittle);
+        verticalLayout_2->addWidget(title);
+
+        author = new QLabel(List_item);
+        author->setObjectName(QString::fromUtf8("author"));
+
+        verticalLayout_2->addWidget(author);
+
+
+        verticalLayout->addLayout(verticalLayout_2);
 
         verticalSpacer = new QSpacerItem(40, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -77,6 +91,8 @@ public:
 
     void retranslateUi(QWidget *List_item)
     {
+        title->setText(QString());
+        author->setText(QString());
         (void)List_item;
     } // retranslateUi
 

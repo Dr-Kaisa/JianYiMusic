@@ -30,16 +30,7 @@ Local_list::Local_list(QWidget *parent) : QScrollArea(parent), ui(new Ui::Local_
     this->ui->list_layout->setAlignment(Qt::AlignTop); //从上到下依次紧密排列
     this->ui->list_layout->addWidget(new List_item(Song("标题"), counter++, this));
 
-
-    // List_item *list_item = new List_item(Song("晚安-卢本杰", "www", true), counter++, this);
-    // this->ui->list_layout->addWidget(list_item);
-    // this->ui->list_layout->addWidget(new List_item(Song("晚安-卢本杰", "www", true), counter++, this));
-    // this->ui->list_layout->addWidget(new List_item(Song("晚安-卢本杰", "www", true), counter++, this));
-    // this->ui->list_layout->addWidget(new List_item(Song("晚安-卢本杰", "www", true), counter++, this));
-    // this->ui->list_layout->addWidget(new List_item(Song("晚安-卢本杰", "www", true), counter++, this));
-    // this->ui->list_layout->addWidget(new List_item(Song("晚安-卢本杰", "www", true), counter++, this));
-    // this->ui->list_layout->addWidget(new List_item(Song("晚安-卢本杰", "www", true), counter++, this));
-    // this->ui->list_layout->addWidget(new List_item(Song("晚安-卢本杰", "www", true), counter++, this));
+    load_songs();
 }
 
 Local_list::~Local_list() {
@@ -48,7 +39,7 @@ Local_list::~Local_list() {
 }
 
 void Local_list::load_songs() {
-    YAML::Node config = YAML::LoadFile("config.yaml");
+    YAML::Node config = YAML::LoadFile("user.yaml");
 
     // 遍历 'items' 数组
     for (const auto &item: config["songs"]) {
@@ -56,6 +47,7 @@ void Local_list::load_songs() {
         QString author = QString::fromStdString(item["author"].as<std::string>());
         QString title = QString::fromStdString(item["title"].as<std::string>());
         QString path = QString::fromStdString(item["path"].as<std::string>());
-        this->ui->list_layout->addWidget(new List_item(Song(title + " - " + author, path, true), counter++, this));
+        qDebug() << title + " - " + author;
+        this->ui->list_layout->addWidget(new List_item(Song(title, author, path, true), counter++, this));
     }
 }

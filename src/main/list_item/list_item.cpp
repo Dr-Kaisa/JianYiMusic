@@ -35,7 +35,12 @@ List_item::List_item(const Song &song, int num, QWidget *parent) : song(song), n
     } else {
         this->setStyleSheet("#List_item{background-color: #eee3e3;}");
     }
-    ui->tittle->setText(song.get_title());
+    ui->title->setText(song.get_title());
+    ui->author->setText(song.get_author());
+    if (song.get_title() == "标题") {
+        ui->author->hide();
+        this->setEnabled(false);
+    }
 }
 
 List_item::~List_item() {
@@ -44,6 +49,10 @@ List_item::~List_item() {
 
 void List_item::paintEvent(QPaintEvent *event) {
     QPainter painter(this);
+    //列表头不渲染这些
+    if (song.get_title() == "标题") {
+        return;
+    }
     //是收藏的歌曲，显示红心心，否则白心心
     if (song.is_favo()) {
         painter.drawPixmap(ui->favo->geometry(), QPixmap(":/icon/favo"));
