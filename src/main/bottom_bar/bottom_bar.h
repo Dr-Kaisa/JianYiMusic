@@ -33,6 +33,28 @@ public:
 
     void mouseReleaseEvent(QMouseEvent *event) override;
 
+signals:
+    void play();
+
+    void next();
+
+    void last();
+
+    void favo();
+
+    void circle();
+
+public slots:
+    void on_btn_play_clicked();
+
+    void on_btn_last_clicked();
+
+    void on_btn_next_clicked();
+
+    void on_btn_favo_clicked();
+
+    void on_btn_circle_clicked();
+
 private:
     Ui::Bottom_bar *ui;
     bool favoPressed;

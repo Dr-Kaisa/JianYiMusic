@@ -76,3 +76,23 @@ void Bottom_bar::mouseReleaseEvent(QMouseEvent *event) {
     circlePressed = false;
     update(); // 触发重绘
 }
+
+void Bottom_bar::on_btn_play_clicked() {
+    emit play();
+}
+
+void Bottom_bar::on_btn_last_clicked() {
+    emit last();
+}
+
+void Bottom_bar::on_btn_next_clicked() {
+    emit next();
+}
+
+void Bottom_bar::on_btn_circle_clicked() {
+    emit circle();
+}
+
+void Bottom_bar::on_btn_favo_clicked() {
+    emit circle();
+}

@@ -24,6 +24,7 @@
 #include  "yaml.h"
 #include  "iostream"
 #include <fstream>
+#include <QMediaPlayer>
 
 QT_BEGIN_NAMESPACE
 
@@ -54,6 +55,16 @@ private slots:
 
     void play(Song song);
 
+    void handleFavo();
+
+    void handleLast();
+
+    void handlePlay();
+
+    void handleNext();
+
+    void handleCircle();
+
 private:
     Ui::Window_main *ui = nullptr;
     Side_bar *side_bar = nullptr;
@@ -64,7 +75,9 @@ private:
     bool resizeEnabled = true;
     QTimer *resizeTimer = nullptr;
     QStackedWidget *container = nullptr;
-    QList<Song> songs; //保存所以歌曲信息
+    QMediaPlayer *media_player = nullptr;
+    QList<Song> songs; //保存所有歌曲信息
+    int targetSong = -1; //当前播放歌曲的索引
     QString userName;
     QString songPath;
 };

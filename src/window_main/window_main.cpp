@@ -24,20 +24,23 @@ Window_main::Window_main(QWidget *parent) : QStackedWidget(parent), ui(new Ui::W
     top_bar = new Top_bar(this);
     //内容区域
     container = new QStackedWidget(this);
-
-    // container->setStyleSheet("QScrollArea{background-color:#f6f6f6;}");
-    // container->setWidgetResizable(true); //允许子组件缩放
     Default_content *default_content = new Default_content(this);
     // Myfavo_list *myfavo_list = new Myfavo_list(this);
     Local_list *local_list = new Local_list(this);
+    container->addWidget(default_content);
+    container->addWidget(local_list);
+
+    bottom_bar = new Bottom_bar(this);
+    media_player = new QMediaPlayer(this);
+    // container->setStyleSheet("QScrollArea{background-color:#f6f6f6;}");
+    // container->setWidgetResizable(true); //允许子组件缩放
+
     // local_list->hide();
     // QStackedWidget *container_widget = new QStackedWidget(this);
     // // container_widget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     //
     // Kaka *kaka = new Kaka(this);
     //
-    container->addWidget(default_content);
-    container->addWidget(local_list);
 
 
     // container->setWidget(default_content);
@@ -47,10 +50,10 @@ Window_main::Window_main(QWidget *parent) : QStackedWidget(parent), ui(new Ui::W
     // this->setCurrentIndex(1);
 
     //底栏
-    bottom_bar = new Bottom_bar(this);
     // this->setFocusPolicy(Qt::StrongFocus);
     connect(default_content, &Default_content::mySig, this, &Window_main::getMusic);
     connect(local_list, &Local_list::tranSig, this, &Window_main::play);
+    connect(bottom_bar, Bottom_bar)
     load_config();
 }
 
@@ -145,6 +148,11 @@ void Window_main::getMusic(QString path) {
 }
 
 void Window_main::play(Song song) {
+    media_player->setMedia(QUrl(song.get_path()));
+    media_player->play();
+    targetSong = songs.indexOf(song);
     qDebug() << song.get_author();
 }
 
+void Window_main::handleFavo() {
+}
