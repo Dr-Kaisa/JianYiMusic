@@ -23,20 +23,25 @@ class Local_list : public QScrollArea {
     Q_OBJECT
 
 public:
-    explicit Local_list(QWidget *parent = nullptr);
+    explicit Local_list(QList<Song> *localSongs, QWidget *parent = nullptr);
 
     ~Local_list() override;
 
-    void load_songs();
+    void load_songs(QList<Song> *localSongs);
 
 signals:
     void tranSig(Song song);
 
+    void favoSig(Song song);
+
 public slots:
-    void tranSlots(Song song);
+    void tranSlot1(Song song);
+
+    void tranSlot2(Song song);
 
 private:
     Ui::Local_list *ui;
+    QList<List_item *> *itemArray = new QList<List_item *>;
     int counter = 0; //计数器
 };
 

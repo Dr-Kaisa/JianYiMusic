@@ -26,7 +26,7 @@ Top_bar::Top_bar(QWidget *parent) : QWidget(parent), ui(new Ui::Top_bar) {
         qDebug() << "open :/styles/top_bar.css fail";
     }
     // ui->go_search->setStyleSheet("border-radius: 20%;");
-    ui->avatar->setFixedSize(50, 50);
+    ui->avatar->setFixedSize(70, 70);
     ui->name->setFixedSize(150, 50);
 }
 
@@ -41,7 +41,7 @@ void Top_bar::on_go_search_clicked() {
 
 void Top_bar::paintEvent(QPaintEvent *event) {
     QPainter *painter = new QPainter(this);
-    painter->drawPixmap(QRect(ui->avatar->pos().x(), ui->avatar->pos().y(), 50, 50), QPixmap(":/img/a1"));
+    painter->drawPixmap(QRect(ui->avatar->pos().x(), ui->avatar->pos().y(), 70, 70), QPixmap(":/img/a1"));
     painter->end();
 }
 

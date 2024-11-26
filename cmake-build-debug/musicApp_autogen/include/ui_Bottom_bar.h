@@ -23,17 +23,18 @@ class Ui_Bottom_bar
 public:
     QHBoxLayout *horizontalLayout;
     QSpacerItem *spacer1;
-    QLabel *favo;
-    QLabel *last;
-    QLabel *pause;
-    QLabel *next;
-    QLabel *circle;
+    QLabel *btn_favo;
+    QLabel *btn_last;
+    QLabel *btn_pause;
+    QLabel *btn_next;
+    QLabel *btn_circle;
     QSpacerItem *spacer2;
 
     void setupUi(QWidget *Bottom_bar)
     {
         if (Bottom_bar->objectName().isEmpty())
             Bottom_bar->setObjectName(QString::fromUtf8("Bottom_bar"));
+        Bottom_bar->resize(608, 229);
         horizontalLayout = new QHBoxLayout(Bottom_bar);
         horizontalLayout->setSpacing(80);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
@@ -42,30 +43,30 @@ public:
 
         horizontalLayout->addItem(spacer1);
 
-        favo = new QLabel(Bottom_bar);
-        favo->setObjectName(QString::fromUtf8("favo"));
+        btn_favo = new QLabel(Bottom_bar);
+        btn_favo->setObjectName(QString::fromUtf8("btn_favo"));
 
-        horizontalLayout->addWidget(favo);
+        horizontalLayout->addWidget(btn_favo);
 
-        last = new QLabel(Bottom_bar);
-        last->setObjectName(QString::fromUtf8("last"));
+        btn_last = new QLabel(Bottom_bar);
+        btn_last->setObjectName(QString::fromUtf8("btn_last"));
 
-        horizontalLayout->addWidget(last);
+        horizontalLayout->addWidget(btn_last);
 
-        pause = new QLabel(Bottom_bar);
-        pause->setObjectName(QString::fromUtf8("pause"));
+        btn_pause = new QLabel(Bottom_bar);
+        btn_pause->setObjectName(QString::fromUtf8("btn_pause"));
 
-        horizontalLayout->addWidget(pause);
+        horizontalLayout->addWidget(btn_pause);
 
-        next = new QLabel(Bottom_bar);
-        next->setObjectName(QString::fromUtf8("next"));
+        btn_next = new QLabel(Bottom_bar);
+        btn_next->setObjectName(QString::fromUtf8("btn_next"));
 
-        horizontalLayout->addWidget(next);
+        horizontalLayout->addWidget(btn_next);
 
-        circle = new QLabel(Bottom_bar);
-        circle->setObjectName(QString::fromUtf8("circle"));
+        btn_circle = new QLabel(Bottom_bar);
+        btn_circle->setObjectName(QString::fromUtf8("btn_circle"));
 
-        horizontalLayout->addWidget(circle);
+        horizontalLayout->addWidget(btn_circle);
 
         spacer2 = new QSpacerItem(40, 200, QSizePolicy::Expanding, QSizePolicy::Minimum);
 

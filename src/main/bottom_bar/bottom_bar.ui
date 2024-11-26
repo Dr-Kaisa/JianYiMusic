@@ -2,6 +2,14 @@
 <ui version="4.0">
     <class>Bottom_bar</class>
     <widget class="QWidget" name="Bottom_bar">
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>608</width>
+                <height>229</height>
+            </rect>
+        </property>
         <layout class="QHBoxLayout" name="horizontalLayout">
             <property name="spacing">
                 <number>80</number>
@@ -23,30 +31,19 @@
                 </spacer>
             </item>
             <item>
-                <widget class="QLabel" name="favo">
-
-
-                </widget>
+                <widget class="QLabel" name="btn_favo"/>
             </item>
             <item>
-                <widget class="QLabel" name="last">
-
-                </widget>
+                <widget class="QLabel" name="btn_last"/>
             </item>
             <item>
-                <widget class="QLabel" name="pause">
-
-                </widget>
+                <widget class="QLabel" name="btn_pause"/>
             </item>
             <item>
-                <widget class="QLabel" name="next">
-
-                </widget>
+                <widget class="QLabel" name="btn_next"/>
             </item>
             <item>
-                <widget class="QLabel" name="circle">
-                   
-                </widget>
+                <widget class="QLabel" name="btn_circle"/>
             </item>
             <item>
                 <spacer name="spacer2">

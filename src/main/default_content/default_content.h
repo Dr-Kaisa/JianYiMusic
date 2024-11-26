@@ -11,6 +11,9 @@
 #include <QDebug>
 #include <QFileDialog>
 #include <QDirIterator>
+#include  "yaml.h"
+#include <fstream>
+// #include <iostream>
 
 
 QT_BEGIN_NAMESPACE

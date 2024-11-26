@@ -98,6 +98,7 @@ void List_item::mousePressEvent(QMouseEvent *event) {
 void List_item::mouseReleaseEvent(QMouseEvent *event) {
     if (ui->favo->geometry().contains(event->pos())) {
         changeFavo = true;
+        emit favoSig(song);
         update();
     } else {
         if (num % 2) {

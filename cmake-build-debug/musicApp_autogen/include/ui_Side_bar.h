@@ -51,7 +51,7 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(logo->sizePolicy().hasHeightForWidth());
         logo->setSizePolicy(sizePolicy);
-        logo->setMinimumSize(QSize(100, 0));
+        logo->setMinimumSize(QSize(100, 70));
 
         horizontalLayout->addWidget(logo);
 

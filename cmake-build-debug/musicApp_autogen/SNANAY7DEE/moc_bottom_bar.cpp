@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Bottom_bar_t {
-    QByteArrayData data[12];
-    char stringdata0[141];
+    QByteArrayData data[13];
+    char stringdata0[116];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -39,17 +39,18 @@ QT_MOC_LITERAL(3, 17, 4), // "next"
 QT_MOC_LITERAL(4, 22, 4), // "last"
 QT_MOC_LITERAL(5, 27, 4), // "favo"
 QT_MOC_LITERAL(6, 32, 6), // "circle"
-QT_MOC_LITERAL(7, 39, 19), // "on_btn_play_clicked"
-QT_MOC_LITERAL(8, 59, 19), // "on_btn_last_clicked"
-QT_MOC_LITERAL(9, 79, 19), // "on_btn_next_clicked"
-QT_MOC_LITERAL(10, 99, 19), // "on_btn_favo_clicked"
-QT_MOC_LITERAL(11, 119, 21) // "on_btn_circle_clicked"
+QT_MOC_LITERAL(7, 39, 10), // "paintEvent"
+QT_MOC_LITERAL(8, 50, 12), // "QPaintEvent*"
+QT_MOC_LITERAL(9, 63, 5), // "event"
+QT_MOC_LITERAL(10, 69, 15), // "mousePressEvent"
+QT_MOC_LITERAL(11, 85, 12), // "QMouseEvent*"
+QT_MOC_LITERAL(12, 98, 17) // "mouseReleaseEvent"
 
     },
     "Bottom_bar\0play\0\0next\0last\0favo\0circle\0"
-    "on_btn_play_clicked\0on_btn_last_clicked\0"
-    "on_btn_next_clicked\0on_btn_favo_clicked\0"
-    "on_btn_circle_clicked"
+    "paintEvent\0QPaintEvent*\0event\0"
+    "mousePressEvent\0QMouseEvent*\0"
+    "mouseReleaseEvent"
 };
 #undef QT_MOC_LITERAL
 
@@ -59,7 +60,7 @@ static const uint qt_meta_data_Bottom_bar[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -67,18 +68,16 @@ static const uint qt_meta_data_Bottom_bar[] = {
        5,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   64,    2, 0x06 /* Public */,
-       3,    0,   65,    2, 0x06 /* Public */,
-       4,    0,   66,    2, 0x06 /* Public */,
-       5,    0,   67,    2, 0x06 /* Public */,
-       6,    0,   68,    2, 0x06 /* Public */,
+       1,    0,   54,    2, 0x06 /* Public */,
+       3,    0,   55,    2, 0x06 /* Public */,
+       4,    0,   56,    2, 0x06 /* Public */,
+       5,    0,   57,    2, 0x06 /* Public */,
+       6,    0,   58,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       7,    0,   69,    2, 0x0a /* Public */,
-       8,    0,   70,    2, 0x0a /* Public */,
-       9,    0,   71,    2, 0x0a /* Public */,
-      10,    0,   72,    2, 0x0a /* Public */,
-      11,    0,   73,    2, 0x0a /* Public */,
+       7,    1,   59,    2, 0x0a /* Public */,
+      10,    1,   62,    2, 0x0a /* Public */,
+      12,    1,   65,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -88,11 +87,9 @@ static const uint qt_meta_data_Bottom_bar[] = {
     QMetaType::Void,
 
  // slots: parameters
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 8,    9,
+    QMetaType::Void, 0x80000000 | 11,    9,
+    QMetaType::Void, 0x80000000 | 11,    9,
 
        0        // eod
 };
@@ -108,11 +105,9 @@ void Bottom_bar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 2: _t->last(); break;
         case 3: _t->favo(); break;
         case 4: _t->circle(); break;
-        case 5: _t->on_btn_play_clicked(); break;
-        case 6: _t->on_btn_last_clicked(); break;
-        case 7: _t->on_btn_next_clicked(); break;
-        case 8: _t->on_btn_favo_clicked(); break;
-        case 9: _t->on_btn_circle_clicked(); break;
+        case 5: _t->paintEvent((*reinterpret_cast< QPaintEvent*(*)>(_a[1]))); break;
+        case 6: _t->mousePressEvent((*reinterpret_cast< QMouseEvent*(*)>(_a[1]))); break;
+        case 7: _t->mouseReleaseEvent((*reinterpret_cast< QMouseEvent*(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -153,7 +148,6 @@ void Bottom_bar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
             }
         }
     }
-    Q_UNUSED(_a);
 }
 
 QT_INIT_METAOBJECT const QMetaObject Bottom_bar::staticMetaObject = { {
@@ -185,13 +179,13 @@ int Bottom_bar::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 8;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 10)
+        if (_id < 8)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 10;
+        _id -= 8;
     }
     return _id;
 }

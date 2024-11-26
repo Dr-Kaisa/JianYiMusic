@@ -12,7 +12,8 @@
 #include "QDebug"
 
 
-Local_list::Local_list(QWidget *parent) : QScrollArea(parent), ui(new Ui::Local_list) {
+Local_list::Local_list(QList<Song> *localSongs, QWidget *parent) : QScrollArea(parent),
+                                                                   ui(new Ui::Local_list) {
     ui->setupUi(this);
     //启用样式表,并从文件加载样式
     this->setAttribute(Qt::WA_StyledBackground);
@@ -24,37 +25,58 @@ Local_list::Local_list(QWidget *parent) : QScrollArea(parent), ui(new Ui::Local_
     } else {
         qDebug() << "open :/style/local_list.css fail";
     }
-
+    //初始样式设置
     this->setWidgetResizable(true); //允许子组件缩放
-
     this->ui->list_layout->setAlignment(Qt::AlignTop); //从上到下依次紧密排列
     this->ui->list_layout->addWidget(new List_item(Song("标题"), counter++, this));
-
-    load_songs();
+    //
+    // for (const Song &it: localSongs) {
+    //     List_item *list_item = new List_item(it, counter++, this);
+    //     itemArray->append(list_item);
+    //     this->ui->list_layout->addWidget(list_item);
+    // }
+    load_songs(localSongs);
 }
 
 Local_list::~Local_list() {
-    qDebug() << "end";
+    delete itemArray;
     delete ui;
 }
 
-void Local_list::load_songs() {
-    YAML::Node config = YAML::LoadFile("user.yaml");
+void Local_list::load_songs(QList<Song> *localSongs) {
+    qDebug() << "reload";
+    //删除之前的
+    // for (List_item *it: itemArray) {
+    //     delete it;
+    // }
+    //重新填充
 
-    // 遍历 'items' 数组
-    for (const auto &item: config["songs"]) {
-        // 访问每个嵌套节点的值
-        QString author = QString::fromStdString(item["author"].as<std::string>());
-        QString title = QString::fromStdString(item["title"].as<std::string>());
-        QString path = QString::fromStdString(item["path"].as<std::string>());
-        qDebug() << title + " - " + author;
-        List_item *list_item = new List_item(Song(title, author, path, false), counter++, this);
-        connect(list_item, &List_item::songSig, this, &Local_list::tranSlots);
-        this->ui->list_layout->addWidget(list_item);
+    for (const Song &it: *localSongs) {
+        if (!localSongs) {
+            qDebug() << "localSongs is null!";
+            return;
+        }
+        if (localSongs->isEmpty()) {
+            qDebug() << "localSongs is empty!";
+        } else {
+            qDebug() << "localSongs contains" << localSongs->size() << "songs.";
+        }
+        // 解引用 shared_ptr 获取 QList<Song>
+        List_item *list_item = new List_item(it, counter++, this);
+        connect(list_item, &List_item::songSig, this, &Local_list::tranSlot1);
+        connect(list_item, &List_item::favoSig, this, &Local_list::tranSlot2);
+        itemArray->append(list_item); // 将 List_item 添加到 itemArray 中
+        this->ui->list_layout->addWidget(list_item); // 将 List_item 添加到布局中
     }
 }
 
-void Local_list::tranSlots(Song song) {
+void Local_list::tranSlot1(Song song) {
+    qDebug() << "转发歌曲路径";
     emit tranSig(song);
+}
+
+void Local_list::tranSlot2(Song song) {
+    qDebug() << "转发歌曲路径";
+    emit favoSig(song);
 }
 

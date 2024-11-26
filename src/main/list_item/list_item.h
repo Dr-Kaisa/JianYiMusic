@@ -38,6 +38,7 @@ public:
 signals:
     void songSig(Song song);
 
+    void favoSig(Song song);
 
     // public slots:
     //     void on_pushButton_cliked();

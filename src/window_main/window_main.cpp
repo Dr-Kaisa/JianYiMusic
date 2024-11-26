@@ -26,9 +26,7 @@ Window_main::Window_main(QWidget *parent) : QStackedWidget(parent), ui(new Ui::W
     container = new QStackedWidget(this);
     Default_content *default_content = new Default_content(this);
     // Myfavo_list *myfavo_list = new Myfavo_list(this);
-    local_list = new Local_list(this);
     container->addWidget(default_content);
-    container->addWidget(local_list);
 
     bottom_bar = new Bottom_bar(this);
     media_player = new QMediaPlayer(this);
@@ -48,12 +46,16 @@ Window_main::Window_main(QWidget *parent) : QStackedWidget(parent), ui(new Ui::W
     // container->setWidget(local_list);
     // local_list->hide();
     // this->setCurrentIndex(1);
-
+    qDebug() << "qqqwm";
     //底栏
-    // this->setFocusPolicy(Qt::StrongFocus);
-    connect(default_content, &Default_content::mySig, this, &Window_main::getMusic);
-    connect(local_list, &Local_list::tranSig, this, &Window_main::play_target_song);
-    connect(bottom_bar, &Bottom_bar::play,this,&Window_main::handlePlay);
+
+    connect(default_content, &Default_content::mySig, this, &Window_main::load_config);
+    //
+    connect(bottom_bar, &Bottom_bar::play, this, &Window_main::handlePlay);
+    connect(bottom_bar, &Bottom_bar::last, this, &Window_main::handleLast);
+    connect(bottom_bar, &Bottom_bar::next, this, &Window_main::handleNext);
+    connect(bottom_bar, &Bottom_bar::favo, this, &Window_main::handleFavo);
+    connect(bottom_bar, &Bottom_bar::circle, this, &Window_main::handleCircle);
     load_config();
 }
 
@@ -62,13 +64,53 @@ Window_main::~Window_main() {
 }
 
 //载入用户配置
+/*
+ *歌曲文件夹路径存在，则将本地音乐和yaml里收藏的音乐分别加载进来，并直接显示本地音乐界面，否则去默认页面提示用户选择路径
+*/
 void Window_main::load_config() {
     YAML::Node config = YAML::LoadFile("user.yaml");
     userName = QString::fromStdString(config["userName"].as<std::string>());
     top_bar->setUserName(userName);
+    //yaml中加载本地音乐路径
     if (config["songPath"].IsDefined()) {
+        //从yaml中加载收藏歌曲
+        if (config["favoSongs"].IsDefined()) {
+            // 遍历 'items' 数组
+            for (const auto &item: config["favoSongs"]) {
+                // 访问每个嵌套节点的值
+                QString author = QString::fromStdString(item["author"].as<std::string>());
+                QString title = QString::fromStdString(item["title"].as<std::string>());
+                QString path = QString::fromStdString(item["path"].as<std::string>());
+                favoSongs->append(Song(title, author, path, true));
+            }
+            qDebug() << favoSongs->at(0).get_path();
+        }
+        //加载全部歌曲进内存
         songPath = QString::fromStdString(config["songPath"].as<std::string>());
-        getMusic(songPath);
+        QDirIterator it(songPath, QDir::Files, QDirIterator::Subdirectories);
+        while (it.hasNext()) {
+            QString path = it.next().trimmed();
+            // 获取文件信息
+            QFileInfo fileInfo(path);
+            // 获取文件名（无扩展名）
+            QString fileName = fileInfo.completeBaseName();
+            // 分割文件名（假设格式为 "歌手 - 歌曲名"）
+            QStringList parts = fileName.split(" - ");
+            if (parts.size() == 2) {
+                QString author = parts[0]; // 歌手
+                QString title = parts[1]; // 歌曲名
+                //如果歌曲已被收藏，则favo=true
+                if (favoSongs->contains(Song(title, author, path, true))) {
+                    songs->append(Song(title, author, path, true));
+                } else {
+                    songs->append(Song(title, author, path, false));
+                }
+            }
+        }
+        local_list = new Local_list(songs, this);
+        container->addWidget(local_list);
+        connect(local_list, &Local_list::tranSig, this, &Window_main::play_target_song);
+        connect(local_list, &Local_list::favoSig, this, &Window_main::handleFavoSig);
         container->setCurrentIndex(1);
     } else {
         container->setCurrentIndex(0);
@@ -105,56 +147,15 @@ void Window_main::resizeWindow(double width, double height) {
     bottom_bar->setGeometry(0, 85 * h, 100 * w, 15 * h);
 }
 
-//将歌曲信息载入到yaml文件和内存
-void Window_main::getMusic(QString path) {
-    // 创建 YAML::Emitter 对象
-    YAML::Node config = YAML::LoadFile("user.yaml");
-    // 清空数组,重新载入
-    if (config["songs"] && config["songs"].IsSequence()) {
-        qDebug() << "clear";
-        config.remove("songs");
-    }
-    // 开始生成 YAML 内容
-    YAML::Node items = YAML::Node(YAML::NodeType::Sequence);
-    QDirIterator it(path, QDir::Files, QDirIterator::Subdirectories);
-    while (it.hasNext()) {
-        QString songPath = it.next().trimmed();
-
-        QFileInfo fileInfo(songPath);
-        QString fileName = fileInfo.completeBaseName(); // 获取文件名（无扩展名）
-
-        // 分割文件名（假设格式为 "歌手 - 歌曲名"）
-        QStringList parts = fileName.split(" - ");
-
-        //添加节点
-        if (parts.size() == 2) {
-            QString author = parts[0]; // 歌手
-            QString title = parts[1]; // 歌曲名
-            YAML::Node item;
-            item["author"] = author.toStdString();
-            item["title"] = title.toStdString();
-            item["path"] = songPath.toStdString();
-            items.push_back(item);
-            songs.append(Song(title, author, songPath, false));
-        } else {
-            qDebug() << "Invalid format, unable to extract info.";
-        }
-    }
-    config["songs"] = items;
-    // 写回修改后的数据到文件
-    std::ofstream fout("user.yaml");
-    fout << config;
-    fout.close();
-    local_list->load_songs();
-    container->setCurrentIndex(1);
-}
-
 void Window_main::play_target_song(Song song) {
-    media_player->setMedia(QUrl(song.get_path()));
+    qDebug() << "target" << song.get_path();
+    media_player->setMedia(QUrl::fromLocalFile(song.get_path()));
     media_player->play();
-    targetSong = songs.indexOf(song);
-    qDebug() << song.get_author();
+    targetSong = songs->indexOf(song);
+    qDebug() << song.get_path();
 }
+
+//播放或暂停
 void Window_main::handlePlay() {
     QMediaPlayer::State state = media_player->state();
 
@@ -162,22 +163,89 @@ void Window_main::handlePlay() {
         media_player->pause();
     } else if (state == QMediaPlayer::PausedState) {
         media_player->play();
-    } else if(state==QMediaPlayer::StoppedState) {
-        media_player->setMedia(QUrl(songs[++targetSong].get_path()));
-        media_player->play();
+    } else if (state == QMediaPlayer::StoppedState) {
+        if (!songs->isEmpty() && songs->size() > targetSong - 1) {
+            media_player->setMedia(QUrl(songs->at(++targetSong).get_path()));
+            media_player->play();
+        }
     }
 }
 
 void Window_main::handleFavo() {
+    //必须先播放过一首歌才能通过底栏收藏
+    if (targetSong == -1) {
+        return;
+    }
+    YAML::Node config = YAML::LoadFile("user.yaml");
+    if (!config["favoSongs"].IsDefined()) {
+        config["favoSongs"] = YAML::Node(YAML::NodeType::Sequence);
+    }
+    // 创建一个新的项，包含三个字段
+    YAML::Node newItem;
+    newItem["title"] = songs->at(targetSong).get_title().toStdString();
+    newItem["author"] = songs->at(targetSong).get_author().toStdString();
+    newItem["path"] = songs->at(targetSong).get_path().toStdString();
+
+    // 将新的项添加到 "items" 数组中
+    if (!isItemExist(config["favoSongs"], newItem)) {
+        config["favoSongs"].push_back(newItem);
+    }
+
+    // 将修改后的数据写回 YAML 文件
+    std::ofstream fout("user.yaml");
+    fout << config;
+    fout.close();
 }
+
+void Window_main::handleFavoSig(Song favoSong) {
+    YAML::Node config = YAML::LoadFile("user.yaml");
+    if (!config["favoSongs"].IsDefined()) {
+        config["favoSongs"] = YAML::Node(YAML::NodeType::Sequence);
+    }
+
+    // 创建一个新的项，包含三个字段
+    YAML::Node newItem;
+    newItem["title"] = favoSong.get_title().toStdString();
+    newItem["author"] = favoSong.get_author().toStdString();
+    newItem["path"] = favoSong.get_path().toStdString();
+
+    // 将新的项添加到 "items" 数组中
+    if (!isItemExist(config["favoSongs"], newItem)) {
+        config["favoSongs"].push_back(newItem);
+    }
+
+    // 将修改后的数据写回 YAML 文件
+    std::ofstream fout("user.yaml");
+    fout << config;
+    fout.close();
+}
+
 void Window_main::handleLast() {
-
+    if (!songs->isEmpty() && targetSong > 0) {
+        media_player->setMedia(QUrl(songs->at(--targetSong).get_path()));
+        media_player->play();
+    }
 }
+
 void Window_main::handleNext() {
-
+    if (!songs->isEmpty() && songs->size() > targetSong - 1) {
+        media_player->setMedia(QUrl(songs->at(++targetSong).get_path()));
+        media_player->play();
+    }
 }
+
 void Window_main::handleCircle() {
-
 }
 
-
+//判断是否已经收藏某个歌曲了
+bool Window_main::isItemExist(const YAML::Node &items, const YAML::Node &newItem) {
+    // 遍历 items 数组，检查是否已有相同的元素
+    for (std::size_t i = 0; i < items.size(); i++) {
+        if (items[i]["title"].as<std::string>() == newItem["title"].as<std::string>() &&
+            items[i]["author"].as<std::string>() == newItem["author"].as<std::string>() &&
+            items[i]["path"].as<std::string>() == newItem["path"].as<std::string>()) {
+            return true; // 如果找到相同的元素，返回 true
+        }
+    }
+    return false; // 如果没有找到相同的元素，返回 false
+}

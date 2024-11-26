@@ -46,12 +46,15 @@ public:
 
     void resizeWindow(double width, double height);
 
-    void load_config();
+    bool isItemExist(const YAML::Node &items, const YAML::Node &newItem);
 
 private slots:
+    void load_config();
+
     void enableResizeEvent();
 
-    void getMusic(QString path);
+    //
+    // void getMusic(QString path);
 
     void play_target_song(Song song);
 
@@ -65,19 +68,22 @@ private slots:
 
     void handleCircle();
 
+    void handleFavoSig(Song song);
+
 private:
     Ui::Window_main *ui = nullptr;
     Side_bar *side_bar = nullptr;
     Top_bar *top_bar = nullptr;
     Bottom_bar *bottom_bar = nullptr;
-    Local_list *local_list=nullptr;
+    Local_list *local_list = nullptr;
     double vh;
     double vw;
     bool resizeEnabled = true;
     QTimer *resizeTimer = nullptr;
     QStackedWidget *container = nullptr;
     QMediaPlayer *media_player = nullptr;
-    QList<Song> songs; //保存所有歌曲信息
+    std::shared_ptr<QList<Song> > favoSongs = std::make_shared<QList<Song> >(); //保存收藏歌曲的信息
+    QList<Song> *songs = new QList<Song>();
     int targetSong = -1; //当前播放歌曲的索引
     QString userName;
     QString songPath;
