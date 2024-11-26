@@ -48,7 +48,7 @@ void Local_list::load_songs() {
         QString title = QString::fromStdString(item["title"].as<std::string>());
         QString path = QString::fromStdString(item["path"].as<std::string>());
         qDebug() << title + " - " + author;
-        List_item *list_item = new List_item(Song(title, author, path, true), counter++, this);
+        List_item *list_item = new List_item(Song(title, author, path, false), counter++, this);
         connect(list_item, &List_item::songSig, this, &Local_list::tranSlots);
         this->ui->list_layout->addWidget(list_item);
     }

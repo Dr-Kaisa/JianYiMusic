@@ -26,7 +26,7 @@ Window_main::Window_main(QWidget *parent) : QStackedWidget(parent), ui(new Ui::W
     container = new QStackedWidget(this);
     Default_content *default_content = new Default_content(this);
     // Myfavo_list *myfavo_list = new Myfavo_list(this);
-    Local_list *local_list = new Local_list(this);
+    local_list = new Local_list(this);
     container->addWidget(default_content);
     container->addWidget(local_list);
 
@@ -52,8 +52,8 @@ Window_main::Window_main(QWidget *parent) : QStackedWidget(parent), ui(new Ui::W
     //底栏
     // this->setFocusPolicy(Qt::StrongFocus);
     connect(default_content, &Default_content::mySig, this, &Window_main::getMusic);
-    connect(local_list, &Local_list::tranSig, this, &Window_main::play);
-    connect(bottom_bar, Bottom_bar)
+    connect(local_list, &Local_list::tranSig, this, &Window_main::play_target_song);
+    connect(bottom_bar, &Bottom_bar::play,this,&Window_main::handlePlay);
     load_config();
 }
 
@@ -145,14 +145,39 @@ void Window_main::getMusic(QString path) {
     std::ofstream fout("user.yaml");
     fout << config;
     fout.close();
+    local_list->load_songs();
+    container->setCurrentIndex(1);
 }
 
-void Window_main::play(Song song) {
+void Window_main::play_target_song(Song song) {
     media_player->setMedia(QUrl(song.get_path()));
     media_player->play();
     targetSong = songs.indexOf(song);
     qDebug() << song.get_author();
 }
+void Window_main::handlePlay() {
+    QMediaPlayer::State state = media_player->state();
+
+    if (state == QMediaPlayer::PlayingState) {
+        media_player->pause();
+    } else if (state == QMediaPlayer::PausedState) {
+        media_player->play();
+    } else if(state==QMediaPlayer::StoppedState) {
+        media_player->setMedia(QUrl(songs[++targetSong].get_path()));
+        media_player->play();
+    }
+}
 
 void Window_main::handleFavo() {
 }
+void Window_main::handleLast() {
+
+}
+void Window_main::handleNext() {
+
+}
+void Window_main::handleCircle() {
+
+}
+
+

@@ -53,7 +53,7 @@ private slots:
 
     void getMusic(QString path);
 
-    void play(Song song);
+    void play_target_song(Song song);
 
     void handleFavo();
 
@@ -70,6 +70,7 @@ private:
     Side_bar *side_bar = nullptr;
     Top_bar *top_bar = nullptr;
     Bottom_bar *bottom_bar = nullptr;
+    Local_list *local_list=nullptr;
     double vh;
     double vw;
     bool resizeEnabled = true;
