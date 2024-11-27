@@ -34,9 +34,7 @@ public slots:
 
     void mouseReleaseEvent(QMouseEvent *event) override;
 
-    void handleDoFavo();
-
-    void handleCancelFavo();
+    void handleSong();
 
 signals:
     void play();

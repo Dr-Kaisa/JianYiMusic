@@ -38,10 +38,14 @@ Bottom_bar::~Bottom_bar() {
 
 void Bottom_bar::paintEvent(QPaintEvent *event) {
     QPainter painter = QPainter(this);
-    static int flag = 1;
+    // static int flag = 1;
     // if (flag)
-    painter.drawPixmap(ui->btn_favo->geometry(),
-                       QPixmap(favoPressed ? ":/icon/favo_press" : ":/icon/favo"));
+    if(favoPressed) {
+        painter.drawPixmap(ui->btn_favo->geometry(), QPixmap(":/icon/favo_press"));
+    }
+
+    // painter.drawPixmap(ui->btn_favo->geometry(),
+    //                    QPixmap(favoPressed ? ":/icon/favo_press" : ":/icon/favo"));
     painter.drawPixmap(ui->btn_last->geometry(),
                        QPixmap(lastPressed ? ":/icon/last_press" : ":/icon/last"));
     painter.drawPixmap(ui->btn_pause->geometry(),
@@ -73,8 +77,9 @@ void Bottom_bar::mousePressEvent(QMouseEvent *event) {
 void Bottom_bar::mouseReleaseEvent(QMouseEvent *event) {
     // 鼠标释放时重置状态
     if (ui->btn_favo->geometry().contains(event->pos())) {
-        qDebug() << "emit favo";
+        //通过底栏收藏，发送信号给父组件
         emit favo();
+
     } else if (ui->btn_last->geometry().contains(event->pos())) {
         emit last();
     } else if (ui->btn_pause->geometry().contains(event->pos())) {
@@ -90,5 +95,9 @@ void Bottom_bar::mouseReleaseEvent(QMouseEvent *event) {
     nextPressed = false;
     circlePressed = false;
     update(); // 触发重绘
+}
+//底栏即使渲染当前播放的音乐
+void Bottom_bar::handleSong() {
+
 }
 

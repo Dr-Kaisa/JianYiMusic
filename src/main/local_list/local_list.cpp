@@ -71,12 +71,12 @@ void Local_list::load_songs(QList<Song> *localSongs) {
 }
 
 void Local_list::tranSlot1(Song song) {
-    qDebug() << "转发歌曲路径";
+    qDebug() << "转发播放信号";
     emit tranSig(song);
 }
 
 void Local_list::tranSlot2(Song song) {
-    qDebug() << "转发歌曲路径";
+    qDebug() << "转发收藏信号";
     emit favoSig(song);
 }
 

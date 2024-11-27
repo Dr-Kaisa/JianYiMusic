@@ -111,6 +111,7 @@ void Window_main::load_config() {
         container->addWidget(local_list);
         connect(local_list, &Local_list::tranSig, this, &Window_main::play_target_song);
         connect(local_list, &Local_list::favoSig, this, &Window_main::handleFavoSig);
+        connect(local_list, &Local_list::tranSig, bottom_bar, &Bottom_bar::handleSong);
         container->setCurrentIndex(1);
     } else {
         container->setCurrentIndex(0);
