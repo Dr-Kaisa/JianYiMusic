@@ -40,7 +40,7 @@ void Bottom_bar::paintEvent(QPaintEvent *event) {
     QPainter painter = QPainter(this);
     // static int flag = 1;
     // if (flag)
-    if(favoPressed) {
+    if (favoPressed) {
         painter.drawPixmap(ui->btn_favo->geometry(), QPixmap(":/icon/favo_press"));
     }
 
@@ -79,7 +79,6 @@ void Bottom_bar::mouseReleaseEvent(QMouseEvent *event) {
     if (ui->btn_favo->geometry().contains(event->pos())) {
         //通过底栏收藏，发送信号给父组件
         emit favo();
-
     } else if (ui->btn_last->geometry().contains(event->pos())) {
         emit last();
     } else if (ui->btn_pause->geometry().contains(event->pos())) {
@@ -96,8 +95,8 @@ void Bottom_bar::mouseReleaseEvent(QMouseEvent *event) {
     circlePressed = false;
     update(); // 触发重绘
 }
+
 //底栏即使渲染当前播放的音乐
 void Bottom_bar::handleSong() {
-
 }
 
