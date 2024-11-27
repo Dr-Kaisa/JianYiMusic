@@ -34,6 +34,10 @@ public slots:
 
     void mouseReleaseEvent(QMouseEvent *event) override;
 
+    void handleDoFavo();
+
+    void handleCancelFavo();
+
 signals:
     void play();
 
@@ -52,6 +56,7 @@ private:
     bool pausePressed;
     bool nextPressed;
     bool circlePressed;
+    bool isFavo;
 };
 
 

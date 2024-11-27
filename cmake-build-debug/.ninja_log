@@ -39,3 +39,10 @@
 10	231	7543379505103204	C:/Users/18160/Documents/myQt/musicApp/cmake-build-debug/musicApp_autogen/mocs_compilation.cpp	f3e282d036e46a28
 231	2856	7543379507318210	CMakeFiles/musicApp.dir/src/window_main/window_main.cpp.obj	60dd8d70ac212fa9
 2856	3879	7543379533563208	musicApp.exe	4ee2cb7725d6022d
+10	132	7543730019881028	musicApp_autogen/timestamp	f3e282d036e46a28
+10	132	7543730019881028	musicApp_autogen/mocs_compilation.cpp	f3e282d036e46a28
+10	132	7543730019881028	C:/Users/18160/Documents/myQt/musicApp/cmake-build-debug/musicApp_autogen/timestamp	f3e282d036e46a28
+10	132	7543730019881028	C:/Users/18160/Documents/myQt/musicApp/cmake-build-debug/musicApp_autogen/mocs_compilation.cpp	f3e282d036e46a28
+195	1877	7543730021729820	CMakeFiles/musicApp.dir/src/main/list_item/list_item.cpp.obj	2b6f91d980219550
+132	2648	7543730021107226	CMakeFiles/musicApp.dir/src/window_main/window_main.cpp.obj	60dd8d70ac212fa9
+2648	3428	7543730046265152	musicApp.exe	4ee2cb7725d6022d

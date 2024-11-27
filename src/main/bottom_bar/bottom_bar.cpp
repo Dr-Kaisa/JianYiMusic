@@ -38,6 +38,8 @@ Bottom_bar::~Bottom_bar() {
 
 void Bottom_bar::paintEvent(QPaintEvent *event) {
     QPainter painter = QPainter(this);
+    static int flag = 1;
+    // if (flag)
     painter.drawPixmap(ui->btn_favo->geometry(),
                        QPixmap(favoPressed ? ":/icon/favo_press" : ":/icon/favo"));
     painter.drawPixmap(ui->btn_last->geometry(),
@@ -65,6 +67,7 @@ void Bottom_bar::mousePressEvent(QMouseEvent *event) {
     }
 
     update(); // 触发重绘
+    QWidget::mousePressEvent(event);
 }
 
 void Bottom_bar::mouseReleaseEvent(QMouseEvent *event) {

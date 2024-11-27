@@ -113,5 +113,6 @@ void List_item::mouseReleaseEvent(QMouseEvent *event) {
 //双击播放
 void List_item::mouseDoubleClickEvent(QMouseEvent *event) {
     emit songSig(song);
+    QWidget::mouseDoubleClickEvent(event);
 }
 
