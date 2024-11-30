@@ -1,0 +1,11 @@
+#Song_list QScrollBar:vertical {
+    background-color: #ffe2e2;
+    /*color: red;*/
+}
+
+
+/*#Song_list QScrollBar::handle:vertical {*/
+/*    background: #ffc7c7; !* 滚动条滑块颜色 *!*/
+/*    !*min-height: 30px; !* 设置滑块最小高度 *!*!*/
+/*    !*border-radius: 6px; !* 滑块圆角 *!*!*/
+/*}*/

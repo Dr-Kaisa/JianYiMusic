@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+    <class>Bottom_bar</class>
+    <widget class="QWidget" name="Bottom_bar">
+        <property name="geometry">
+            <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>778</width>
+                <height>229</height>
+            </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+            <property name="spacing">
+                <number>60</number>
+            </property>
+            <property name="topMargin">
+                <number>20</number>
+            </property>
+            <item>
+                <spacer name="spacer1">
+                    <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                        <size>
+                            <width>40</width>
+                            <height>200</height>
+                        </size>
+                    </property>
+                </spacer>
+            </item>
+            <item>
+                <widget class="QLabel" name="placeholder"/>
+            </item>
+            <item>
+                <widget class="QLabel" name="btn_favo"/>
+            </item>
+            <item>
+                <widget class="QLabel" name="btn_last"/>
+            </item>
+            <item>
+                <widget class="QLabel" name="btn_pause"/>
+            </item>
+            <item>
+                <widget class="QLabel" name="btn_next"/>
+            </item>
+            <item>
+                <widget class="QLabel" name="btn_circle"/>
+            </item>
+            <item>
+                <widget class="QSlider" name="slider">
+                    <property name="sizePolicy">
+                        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                        </sizepolicy>
+                    </property>
+                    <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                    </property>
+                </widget>
+            </item>
+            <item>
+                <spacer name="spacer2">
+                    <property name="orientation">
+                        <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                        <size>
+                            <width>40</width>
+                            <height>200</height>
+                        </size>
+                    </property>
+                </spacer>
+            </item>
+        </layout>
+    </widget>
+    <resources/>
+    <connections/>
+</ui>

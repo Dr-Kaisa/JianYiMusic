@@ -1,0 +1,15 @@
+
+QWidget QPushButton {
+    background-color: #ffc7c7;
+    border: 1px solid #2c3e50;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+QWidget QPushButton:pressed {
+    background-color: #eeb6b6;
+}
+
+#Side_bar {
+    background-color: #ffe2e2;
+}

@@ -1,0 +1,32 @@
+QWidget#input {
+    padding: 0;
+    margin: 0;
+    padding-left: 10px;
+    font-size: 24px;
+    border-radius: 20%;
+}
+
+QPushButton#go_search {
+    background-color: #ffc7c7;
+    border-radius: 20%;
+}
+
+
+QWidget#go_search:pressed {
+    background-color: #eeb6b6;
+}
+
+
+QWidget#name {
+    /*border: 1px solid red;*/
+}
+
+QWidget#avatar {
+
+    /*border: 1px solid red;*/
+}
+
+
+#Top_bar {
+    background-color: #ffe2e2;
+}

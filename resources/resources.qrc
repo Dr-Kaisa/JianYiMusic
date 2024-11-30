@@ -1,0 +1,51 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource prefix="/img">
+        <file alias="logo">img/logo.png</file>
+        <file alias="a1">img/a1.jpg</file>
+    </qresource>
+
+
+    <qresource prefix="/icon">
+
+        <file alias="my">icon/my.png</file>
+
+        <file alias="favo">icon/favo.png</file>
+        <file alias="favo_no">icon/favo_no.png</file>
+        <file alias="favo_press">icon/favo_press.png</file>
+        <file alias="last">icon/last.png</file>
+        <file alias="last_press">icon/last_press.png</file>
+        <file alias="next">icon/next.png</file>
+        <file alias="next_press">icon/next_press.png</file>
+
+        <file alias="circle">icon/circle.png</file>
+        <file alias="circle_press">icon/circle_press.png</file>
+        <file alias="pause">icon/pause.png</file>
+        <file alias="pause_press">icon/pause_press.png</file>
+        <file alias="play">icon/play.png</file>
+        <file alias="play_press">icon/play_press.png</file>
+        <file alias="search">icon/search.png</file>
+        <file alias="add_file">icon/add_file.png</file>
+
+    </qresource>
+
+    <qresource prefix="/style">
+        <file alias="window_login">../src/window_login/window_login.css</file>
+        <file alias="window_register">../src/window_register/window_register.css</file>
+
+        <file alias="top_bar">../src/main/top_bar/top_bar.css</file>
+        <file alias="side_bar">../src/main/side_bar/side_bar.css</file>
+        <file alias="bottom_bar">../src/main/bottom_bar/bottom_bar.css</file>
+
+        <file alias="default_content">../src/main/default_content/default_content.css</file>
+        <file alias="song_list">../src/main/song_list/song_list.css</file>
+
+        <file alias="list_item_normal_odd">../src/main/list_item/list_item_normal_odd.css</file>
+        <file alias="list_item_normal_even">../src/main/list_item/list_item_normal_even.css</file>
+        <file alias="list_item_press_odd">../src/main/list_item/list_item_press_odd.css</file>
+        <file alias="list_item_press_even">../src/main/list_item/list_item_press_even.css</file>
+
+
+    </qresource>
+
+</RCC>

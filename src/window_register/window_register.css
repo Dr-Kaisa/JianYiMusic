@@ -1,0 +1,8 @@
+#Window_register {
+    background-color: #eee3e3;
+    /*background-color: red;*/
+}
+
+#Window_register QPushButton {
+    background-color: #ffc7c7;
+}

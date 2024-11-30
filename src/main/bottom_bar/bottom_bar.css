@@ -1,0 +1,29 @@
+
+#Bottom_bar {
+    background-color: #ffc7c7;
+}
+
+
+QSlider::groove:horizontal {
+    height: 10px; /* 设置槽区的高度 */
+    background: #fff4f4;
+    border-radius: 5px;
+}
+
+QSlider::sub-page:horizontal {
+    height: 3px; /* 设置槽区的高度 */
+
+    background: #fe5e08;
+    border-radius: 5px;
+}
+
+QSlider::handle:horizontal {
+    background: #fe5e08;
+    width: 10px; /* 设置滑块的宽度 */
+    height: 50px; /* 设置滑块的高度 */
+    border-radius: 5px;
+    margin-top: -10px; /* 将滑块上移，让其部分超出槽区 */
+    margin-bottom: -10px; /* 将滑块上移，让其部分超出槽区 */
+}
+
+
