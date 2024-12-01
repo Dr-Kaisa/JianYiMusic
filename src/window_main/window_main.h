@@ -47,6 +47,8 @@ public:
 
     bool isItemExist(const YAML::Node &items, const YAML::Node &newItem);
 
+    void closeEvent(QCloseEvent *event) override;
+
 signals:
     void trans_bot_favoChange(Song song);
 
@@ -78,6 +80,8 @@ private slots:
 
     void changeVolume(int value);
 
+    void handleSearch(QString str);
+
 private:
     Ui::Window_main *ui = nullptr;
     Side_bar *side_bar = nullptr;
@@ -85,6 +89,8 @@ private:
     Bottom_bar *bottom_bar = nullptr;
     Song_list *local_list = nullptr;
     Song_list *myfavo_list = nullptr;
+    std::shared_ptr<Song_list> result_list = nullptr;
+
     Song_list::FavoSongManager *favo_song_manager = nullptr;
     double vh;
     double vw;
@@ -94,6 +100,7 @@ private:
     QMediaPlayer *media_player = nullptr;
     QList<Song> *favoSongs = new QList<Song>(); //收藏的歌曲
     QList<Song> *songs = new QList<Song>(); //全部歌曲
+    QList<Song> *result_songs = nullptr; //搜索结果歌曲
     int targetSong = -1; //当前播放歌曲的索引
     QString userName;
     QString songPath;

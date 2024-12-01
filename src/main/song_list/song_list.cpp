@@ -48,14 +48,9 @@ void Song_list::load_songs(QList<Song> *localSongs) {
     //重新填充
 
     for (const Song &it: *localSongs) {
-        if (!localSongs) {
+        if (localSongs == nullptr) {
             qDebug() << "localSongs is null!";
             return;
-        }
-        if (localSongs->isEmpty()) {
-            qDebug() << "localSongs is empty!";
-        } else {
-            qDebug() << "localSongs contains" << localSongs->size() << "songs.";
         }
         // 解引用 shared_ptr 获取 QList<Song>
         List_item *list_item = new List_item(it, counter++, this);

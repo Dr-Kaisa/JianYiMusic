@@ -7,15 +7,12 @@
                 <x>0</x>
                 <y>0</y>
                 <width>778</width>
-                <height>229</height>
+                <height>242</height>
             </rect>
         </property>
-        <layout class="QHBoxLayout" name="horizontalLayout">
+        <layout class="QHBoxLayout" name="horizontalLayout_out">
             <property name="spacing">
                 <number>60</number>
-            </property>
-            <property name="topMargin">
-                <number>20</number>
             </property>
             <item>
                 <spacer name="spacer1">
@@ -31,7 +28,35 @@
                 </spacer>
             </item>
             <item>
-                <widget class="QLabel" name="placeholder"/>
+                <widget class="QWidget" name="song_info">
+                    <layout class="QHBoxLayout" name="horizontalLayout_inner">
+                        <item>
+                            <widget class="QWidget" name="title_wrap" native="true">
+                                <widget class="QLabel" name="title">
+
+                                </widget>
+                            </widget>
+                        </item>
+                        <item>
+                            <widget class="QLabel" name="separator">
+                                <property name="sizePolicy">
+                                    <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+                                        <horstretch>0</horstretch>
+                                        <verstretch>0</verstretch>
+                                    </sizepolicy>
+                                </property>
+                            </widget>
+                        </item>
+                        <item>
+                            <widget class="QWidget" name="author_wrap" native="true">
+
+                                <widget class="QLabel" name="author">
+
+                                </widget>
+                            </widget>
+                        </item>
+                    </layout>
+                </widget>
             </item>
             <item>
                 <widget class="QLabel" name="btn_favo"/>

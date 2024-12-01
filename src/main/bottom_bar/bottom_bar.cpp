@@ -19,9 +19,49 @@ Bottom_bar::Bottom_bar(QWidget *parent) : QWidget(parent), ui(new Ui::Bottom_bar
         this->setStyleSheet(styleSheet);
     } else {
         qDebug() << "open :/style/bottom_.css fail";
+        qDebug() << "open :/style/bottom_.css fail";
     }
-    ui->horizontalLayout->setAlignment(ui->btn_pause, Qt::AlignCenter);
-    ui->placeholder->setFixedSize(200, 70);
+    scrollTimer = new QTimer(this);
+    connect(scrollTimer, &QTimer::timeout, [=]() {
+        int x_title = ui->title->x();
+        int x_author = ui->author->x();
+        // ui->title->move(x - 2, ui->title->y()); // 每次滚动 2 个像素
+        // ui->title->setGeometry(x, y, a += 2, 70);
+        // ui->title->setFixedWidth(a += 2);
+        if (ui->title_wrap->width() < ui->title->width()) {
+            if (x_title + ui->title->width() <= 0) {
+                ui->title->move(0, ui->title->y()); // 重置
+            } else {
+                ui->title->move(x_title - 1, ui->title->y()); // 每次滚动 2 个像素
+            }
+        } else {
+            ui->title->move(0, 0); // 复原
+        }
+        if (ui->author_wrap->width() < ui->author->width()) {
+            if (x_author + ui->author->width() <= 0) {
+                ui->author->move(ui->separator->width(), ui->author->y()); // 重置
+            } else {
+                ui->author->move(x_author - 1, ui->author->y()); // 每次滚动 2 个像素
+            }
+        } else {
+            ui->author->move(ui->separator->x() + ui->author_wrap->width() < ui->author->width(), ui->title->y()); // 复原
+        }
+    });
+    // ui->title->setFixedWidth(1000);
+    scrollTimer->start(20); // 每 30 毫秒更新一次
+
+    // ui->title->setElideMode(Qt::ElideNone);
+    // ui->author->setT
+    // ui->horizontalLayout_1->setAlignment(Qt::AlignLeft);
+    // ui->title->setFixedHeight(40);
+    // ui->separator->setFixedHeight(40);
+    // ui->author->setFixedHeight(40);
+    ui->title_wrap->setFixedSize(100, 70);
+    ui->author_wrap->setFixedSize(100, 70);
+    ui->title->setFixedSize(700, 70);
+    ui->author->setFixedSize(700, 70);
+    ui->horizontalLayout_out->setAlignment(ui->btn_pause, Qt::AlignCenter);
+    ui->song_info->setFixedSize(250, 70);
     ui->btn_favo->setFixedSize(70, 70);
     ui->btn_last->setFixedSize(70, 70);
     ui->btn_pause->setFixedSize(70, 70);
@@ -128,8 +168,33 @@ void Bottom_bar::mouseReleaseEvent(QMouseEvent *event) {
 //底栏即使渲染当前播放的音乐
 void Bottom_bar::set_this_song(Song *this_song) {
     thisSong = this_song;
-    if (thisSong->is_favo()) { qDebug() << "yes"; }
     isPlay = true;
+
+
+    // 获取当前字体
+    QFont title_font = ui->title->font();
+    QFontMetrics title_fm(title_font);
+    // 计算文本的宽度
+    int title_textWidth = title_fm.horizontalAdvance(this_song->get_title());
+    //调整显示区域大小
+    ui->title->setFixedWidth(title_textWidth + 10); //留点余量
+    //再把文本设置上去
+    ui->title->setText(this_song->get_title());
+
+    ui->separator->setText("-");
+
+    // 获取当前字体
+    QFont author_font = ui->author->font();
+    QFontMetrics author_fm(author_font);
+    // 计算文本的宽度
+    int author_textWidth = author_fm.horizontalAdvance(this_song->get_author());
+    //调整显示区域大小
+    ui->author->setFixedWidth(author_textWidth + 10);
+    //再把文本设置上去
+    ui->author->setText(this_song->get_author());
+    qDebug() << ui->author->width();
+    qDebug() << ui->title->width();
+
     update();
 }
 

@@ -431,6 +431,7 @@ musicApp_autogen/timestamp: \
   E:/Qt/5.15.2/mingw81_64/include/QtGui/QBrush \
   E:/Qt/5.15.2/mingw81_64/include/QtGui/QDragEnterEvent \
   E:/Qt/5.15.2/mingw81_64/include/QtGui/QDropEvent \
+  E:/Qt/5.15.2/mingw81_64/include/QtGui/QFontMetrics \
   E:/Qt/5.15.2/mingw81_64/include/QtGui/QMouseEvent \
   E:/Qt/5.15.2/mingw81_64/include/QtGui/QPainter \
   E:/Qt/5.15.2/mingw81_64/include/QtGui/QResizeEvent \

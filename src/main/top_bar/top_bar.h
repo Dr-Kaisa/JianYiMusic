@@ -28,6 +28,9 @@ public:
 
     void setUserName(const QString &name);
 
+signals:
+    void search(QString str);
+
 public slots:
     void on_go_search_clicked();
 

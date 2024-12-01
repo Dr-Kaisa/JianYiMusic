@@ -376,6 +376,7 @@ C:/Users/18160/Documents/myQt/JianYiMusic/src/window_main/window_main.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtCore/qversiontagging.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtGui/QDragEnterEvent
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtGui/QDropEvent
+ mdp:E:/Qt/5.15.2/mingw81_64/include/QtGui/QFontMetrics
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtGui/QMouseEvent
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtGui/QPainter
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtGui/QResizeEvent
@@ -661,11 +662,13 @@ C:/Users/18160/Documents/myQt/JianYiMusic/src/main/bottom_bar/bottom_bar.h
  mdp:D:/CLion-2024.1.6.win/bin/mingw/x86_64-w64-mingw32/include/wchar.h
  mdp:D:/CLion-2024.1.6.win/bin/mingw/x86_64-w64-mingw32/include/wctype.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtCore/QDebug
+ mdp:E:/Qt/5.15.2/mingw81_64/include/QtCore/QTimer
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtCore/qalgorithms.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtCore/qarraydata.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtCore/qatomic.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtCore/qatomic_cxx11.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtCore/qbasicatomic.h
+ mdp:E:/Qt/5.15.2/mingw81_64/include/QtCore/qbasictimer.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtCore/qbytearray.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtCore/qbytearraylist.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtCore/qchar.h
@@ -722,12 +725,14 @@ C:/Users/18160/Documents/myQt/JianYiMusic/src/main/bottom_bar/bottom_bar.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtCore/qsystemdetection.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtCore/qtcore-config.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtCore/qtextstream.h
+ mdp:E:/Qt/5.15.2/mingw81_64/include/QtCore/qtimer.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtCore/qtypeinfo.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtCore/qurl.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtCore/qvariant.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtCore/qvarlengtharray.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtCore/qvector.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtCore/qversiontagging.h
+ mdp:E:/Qt/5.15.2/mingw81_64/include/QtGui/QFontMetrics
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtGui/QMouseEvent
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtGui/QPainter
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtGui/qbrush.h
@@ -758,7 +763,10 @@ C:/Users/18160/Documents/myQt/JianYiMusic/src/main/bottom_bar/bottom_bar.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtGui/qvector2d.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtGui/qwindowdefs.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtGui/qwindowdefs_win.h
+ mdp:E:/Qt/5.15.2/mingw81_64/include/QtWidgets/QLabel
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtWidgets/QWidget
+ mdp:E:/Qt/5.15.2/mingw81_64/include/QtWidgets/qframe.h
+ mdp:E:/Qt/5.15.2/mingw81_64/include/QtWidgets/qlabel.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtWidgets/qsizepolicy.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtwidgets-config.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtwidgetsglobal.h
@@ -2811,6 +2819,7 @@ C:/Users/18160/Documents/myQt/JianYiMusic/src/window_login/window_login.h
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtGui/QBrush
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtGui/QDragEnterEvent
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtGui/QDropEvent
+ mdp:E:/Qt/5.15.2/mingw81_64/include/QtGui/QFontMetrics
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtGui/QMouseEvent
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtGui/QPainter
  mdp:E:/Qt/5.15.2/mingw81_64/include/QtGui/QResizeEvent

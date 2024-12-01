@@ -12,6 +12,7 @@
 
 Window_main::Window_main(QWidget *parent) : QStackedWidget(parent), ui(new Ui::Window_main) {
     ui->setupUi(this);
+    //初始化窗口
     resizeTimer = new QTimer(this);
     resizeTimer->setInterval(500); // 每 500 毫秒触发一次
     resizeTimer->setSingleShot(true); // 只触发一次
@@ -20,10 +21,14 @@ Window_main::Window_main(QWidget *parent) : QStackedWidget(parent), ui(new Ui::W
     vh = this->screen()->size().height() / 100;
     vw = this->screen()->size().width() / 100;
     this->setGeometry(12 * vw, 10 * vh, 77 * vw, 66 * vh);
+
+    //侧边栏
     side_bar = new Side_bar(this);
     connect(side_bar, &Side_bar::local_clicked, this, &Window_main::changeContainer);
     connect(side_bar, &Side_bar::myFavo_clicked, this, &Window_main::changeContainer);
+    //顶栏
     top_bar = new Top_bar(this);
+    connect(top_bar, &Top_bar::search, this, &Window_main::handleSearch);
     //内容区域
     container = new QStackedWidget(this);
     Default_content *default_content = new Default_content(this);
@@ -57,10 +62,13 @@ void Window_main::load_config() {
     YAML::Node config = YAML::LoadFile("user.yaml");
     userName = QString::fromStdString(config["userName"].as<std::string>());
     top_bar->setUserName(userName);
+    //加载用户习惯窗口大小
+    if (config["windowWidth"].IsDefined() && config["windowHeight"].IsDefined()) {
+        this->resize(config["windowWidth"].as<int>(), config["windowHeight"].as<int>());
+    }
     //yaml中加载本地音乐路径
     if (config["songPath"].IsDefined()) {
         //从yaml中加载收藏歌曲
-
         if (config["favoSongs"].IsDefined() && !config["favoSongs"].size() == 0) {
             // 遍历 'items' 数组
             for (const auto &item: config["favoSongs"]) {
@@ -342,4 +350,32 @@ void Window_main::changeContainer(QString target) {
 void Window_main::changeVolume(int value) {
     qDebug() << value;
     media_player->setVolume(value);
+}
+
+//处理顶部的搜索信号
+void Window_main::handleSearch(QString str) {
+    if (result_list) {
+        container->removeWidget(result_list.get());
+    }
+    result_songs = new QList<Song>();;
+    for (const Song &it: *songs) {
+        if (it.get_title().contains(str)) {
+            result_songs->append(it);
+            qDebug() << it.get_title();
+        }
+    }
+    result_list = std::make_shared<Song_list>(result_songs, this);
+    container->addWidget(result_list.get());
+    container->setCurrentIndex(3);
+}
+
+//关闭事件
+void Window_main::closeEvent(QCloseEvent *event) {
+    YAML::Node config = YAML::LoadFile("user.yaml");
+    //保存退出时的窗口大小
+    config["windowWidth"] = this->width();
+    config["windowHeight"] = this->height();
+    std::ofstream fout("user.yaml");
+    fout << config;
+    fout.close();
 }

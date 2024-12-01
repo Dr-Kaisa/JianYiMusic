@@ -49,9 +49,14 @@ List_item::List_item(Song song, int num, QWidget *parent) : song(song), num(num)
     } else {
         this->setStyleSheet(style_normal_even);
     }
-
-    ui->title->setText(song.get_title());
-    ui->author->setText(song.get_author());
+    ui->title->setFixedWidth(500);
+    ui->author->setFixedWidth(500);
+    QFontMetrics elidfont1(ui->title->font());
+    ui->title->setText(elidfont1.elidedText(song.get_title(), Qt::ElideMiddle, ui->title->width()));
+    QFontMetrics elidfont2(ui->author->font());
+    ui->author->setText(elidfont2.elidedText(song.get_author(), Qt::ElideMiddle, ui->author->width()));
+    // ui->title->setText(song.get_title());
+    // ui->author->setText(song.get_author());
     if (song.get_title() == "标题") {
         ui->author->hide();
         this->setEnabled(false);

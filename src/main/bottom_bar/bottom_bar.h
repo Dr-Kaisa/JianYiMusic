@@ -8,6 +8,9 @@
 #include <QWidget>
 #include <QPainter>
 #include <QDebug>
+#include <QTimer>
+#include <QLabel>
+#include <QFontMetrics>
 #include <QMouseEvent>
 #include <../src/main/list_item/Song.h>
 
@@ -68,6 +71,7 @@ private:
     bool circlePressed = false;
     bool isPlay = false;
     Song *thisSong = nullptr;
+    QTimer *scrollTimer;
 };
 
 

@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Window_main_t {
-    QByteArrayData data[21];
-    char stringdata0[254];
+    QByteArrayData data[23];
+    char stringdata0[271];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -52,7 +52,9 @@ QT_MOC_LITERAL(16, 196, 15), // "handleDeFavoSig"
 QT_MOC_LITERAL(17, 212, 15), // "changeContainer"
 QT_MOC_LITERAL(18, 228, 6), // "target"
 QT_MOC_LITERAL(19, 235, 12), // "changeVolume"
-QT_MOC_LITERAL(20, 248, 5) // "value"
+QT_MOC_LITERAL(20, 248, 5), // "value"
+QT_MOC_LITERAL(21, 254, 12), // "handleSearch"
+QT_MOC_LITERAL(22, 267, 3) // "str"
 
     },
     "Window_main\0trans_bot_favoChange\0\0"
@@ -61,7 +63,8 @@ QT_MOC_LITERAL(20, 248, 5) // "value"
     "handle_bot_deFavo\0handleLast\0handlePlay\0"
     "handleNext\0handleCircle\0handleFavoSig\0"
     "targetSong\0handleDeFavoSig\0changeContainer\0"
-    "target\0changeVolume\0value"
+    "target\0changeVolume\0value\0handleSearch\0"
+    "str"
 };
 #undef QT_MOC_LITERAL
 
@@ -71,7 +74,7 @@ static const uint qt_meta_data_Window_main[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      14,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -79,22 +82,23 @@ static const uint qt_meta_data_Window_main[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   84,    2, 0x06 /* Public */,
+       1,    1,   89,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       5,    0,   87,    2, 0x08 /* Private */,
-       6,    0,   88,    2, 0x08 /* Private */,
-       7,    1,   89,    2, 0x08 /* Private */,
-       8,    1,   92,    2, 0x08 /* Private */,
-       9,    1,   95,    2, 0x08 /* Private */,
-      10,    0,   98,    2, 0x08 /* Private */,
-      11,    0,   99,    2, 0x08 /* Private */,
-      12,    0,  100,    2, 0x08 /* Private */,
-      13,    0,  101,    2, 0x08 /* Private */,
-      14,    1,  102,    2, 0x08 /* Private */,
-      16,    1,  105,    2, 0x08 /* Private */,
-      17,    1,  108,    2, 0x08 /* Private */,
-      19,    1,  111,    2, 0x08 /* Private */,
+       5,    0,   92,    2, 0x08 /* Private */,
+       6,    0,   93,    2, 0x08 /* Private */,
+       7,    1,   94,    2, 0x08 /* Private */,
+       8,    1,   97,    2, 0x08 /* Private */,
+       9,    1,  100,    2, 0x08 /* Private */,
+      10,    0,  103,    2, 0x08 /* Private */,
+      11,    0,  104,    2, 0x08 /* Private */,
+      12,    0,  105,    2, 0x08 /* Private */,
+      13,    0,  106,    2, 0x08 /* Private */,
+      14,    1,  107,    2, 0x08 /* Private */,
+      16,    1,  110,    2, 0x08 /* Private */,
+      17,    1,  113,    2, 0x08 /* Private */,
+      19,    1,  116,    2, 0x08 /* Private */,
+      21,    1,  119,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -113,6 +117,7 @@ static const uint qt_meta_data_Window_main[] = {
     QMetaType::Void, 0x80000000 | 3,   15,
     QMetaType::Void, QMetaType::QString,   18,
     QMetaType::Void, QMetaType::Int,   20,
+    QMetaType::Void, QMetaType::QString,   22,
 
        0        // eod
 };
@@ -137,6 +142,7 @@ void Window_main::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 11: _t->handleDeFavoSig((*reinterpret_cast< Song(*)>(_a[1]))); break;
         case 12: _t->changeContainer((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 13: _t->changeVolume((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 14: _t->handleSearch((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -180,13 +186,13 @@ int Window_main::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 14)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 14;
+        _id -= 15;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 14)
+        if (_id < 15)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 14;
+        _id -= 15;
     }
     return _id;
 }

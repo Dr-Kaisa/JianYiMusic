@@ -3,6 +3,10 @@
     background-color: #ffc7c7;
 }
 
+#title, #separator, #author {
+    font-size: 28px;
+    font-family: "Microsoft YaHei";
+}
 
 QSlider::groove:horizontal {
     height: 10px; /* 设置槽区的高度 */

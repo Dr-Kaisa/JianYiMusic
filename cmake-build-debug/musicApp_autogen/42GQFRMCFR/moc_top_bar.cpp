@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Top_bar_t {
-    QByteArrayData data[3];
-    char stringdata0[30];
+    QByteArrayData data[5];
+    char stringdata0[41];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -33,11 +33,13 @@ struct qt_meta_stringdata_Top_bar_t {
 static const qt_meta_stringdata_Top_bar_t qt_meta_stringdata_Top_bar = {
     {
 QT_MOC_LITERAL(0, 0, 7), // "Top_bar"
-QT_MOC_LITERAL(1, 8, 20), // "on_go_search_clicked"
-QT_MOC_LITERAL(2, 29, 0) // ""
+QT_MOC_LITERAL(1, 8, 6), // "search"
+QT_MOC_LITERAL(2, 15, 0), // ""
+QT_MOC_LITERAL(3, 16, 3), // "str"
+QT_MOC_LITERAL(4, 20, 20) // "on_go_search_clicked"
 
     },
-    "Top_bar\0on_go_search_clicked\0"
+    "Top_bar\0search\0\0str\0on_go_search_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -47,15 +49,21 @@ static const uint qt_meta_data_Top_bar[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags
+       1,    1,   24,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   19,    2, 0x0a /* Public */,
+       4,    0,   27,    2, 0x0a /* Public */,
+
+ // signals: parameters
+    QMetaType::Void, QMetaType::QString,    3,
 
  // slots: parameters
     QMetaType::Void,
@@ -69,11 +77,20 @@ void Top_bar::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         auto *_t = static_cast<Top_bar *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->on_go_search_clicked(); break;
+        case 0: _t->search((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 1: _t->on_go_search_clicked(); break;
         default: ;
         }
+    } else if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        {
+            using _t = void (Top_bar::*)(QString );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&Top_bar::search)) {
+                *result = 0;
+                return;
+            }
+        }
     }
-    Q_UNUSED(_a);
 }
 
 QT_INIT_METAOBJECT const QMetaObject Top_bar::staticMetaObject = { {
@@ -105,15 +122,22 @@ int Top_bar::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 2;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 2)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 1;
+        _id -= 2;
     }
     return _id;
+}
+
+// SIGNAL 0
+void Top_bar::search(QString _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

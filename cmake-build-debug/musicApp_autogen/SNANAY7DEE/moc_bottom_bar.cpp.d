@@ -202,11 +202,13 @@ C:/Users/18160/Documents/myQt/JianYiMusic/cmake-build-debug/musicApp_autogen/SNA
   D:/CLion-2024.1.6.win/bin/mingw/x86_64-w64-mingw32/include/wchar.h \
   D:/CLion-2024.1.6.win/bin/mingw/x86_64-w64-mingw32/include/wctype.h \
   E:/Qt/5.15.2/mingw81_64/include/QtCore/QDebug \
+  E:/Qt/5.15.2/mingw81_64/include/QtCore/QTimer \
   E:/Qt/5.15.2/mingw81_64/include/QtCore/qalgorithms.h \
   E:/Qt/5.15.2/mingw81_64/include/QtCore/qarraydata.h \
   E:/Qt/5.15.2/mingw81_64/include/QtCore/qatomic.h \
   E:/Qt/5.15.2/mingw81_64/include/QtCore/qatomic_cxx11.h \
   E:/Qt/5.15.2/mingw81_64/include/QtCore/qbasicatomic.h \
+  E:/Qt/5.15.2/mingw81_64/include/QtCore/qbasictimer.h \
   E:/Qt/5.15.2/mingw81_64/include/QtCore/qbytearray.h \
   E:/Qt/5.15.2/mingw81_64/include/QtCore/qbytearraylist.h \
   E:/Qt/5.15.2/mingw81_64/include/QtCore/qchar.h \
@@ -263,12 +265,14 @@ C:/Users/18160/Documents/myQt/JianYiMusic/cmake-build-debug/musicApp_autogen/SNA
   E:/Qt/5.15.2/mingw81_64/include/QtCore/qsystemdetection.h \
   E:/Qt/5.15.2/mingw81_64/include/QtCore/qtcore-config.h \
   E:/Qt/5.15.2/mingw81_64/include/QtCore/qtextstream.h \
+  E:/Qt/5.15.2/mingw81_64/include/QtCore/qtimer.h \
   E:/Qt/5.15.2/mingw81_64/include/QtCore/qtypeinfo.h \
   E:/Qt/5.15.2/mingw81_64/include/QtCore/qurl.h \
   E:/Qt/5.15.2/mingw81_64/include/QtCore/qvariant.h \
   E:/Qt/5.15.2/mingw81_64/include/QtCore/qvarlengtharray.h \
   E:/Qt/5.15.2/mingw81_64/include/QtCore/qvector.h \
   E:/Qt/5.15.2/mingw81_64/include/QtCore/qversiontagging.h \
+  E:/Qt/5.15.2/mingw81_64/include/QtGui/QFontMetrics \
   E:/Qt/5.15.2/mingw81_64/include/QtGui/QMouseEvent \
   E:/Qt/5.15.2/mingw81_64/include/QtGui/QPainter \
   E:/Qt/5.15.2/mingw81_64/include/QtGui/qbrush.h \
@@ -299,7 +303,10 @@ C:/Users/18160/Documents/myQt/JianYiMusic/cmake-build-debug/musicApp_autogen/SNA
   E:/Qt/5.15.2/mingw81_64/include/QtGui/qvector2d.h \
   E:/Qt/5.15.2/mingw81_64/include/QtGui/qwindowdefs.h \
   E:/Qt/5.15.2/mingw81_64/include/QtGui/qwindowdefs_win.h \
+  E:/Qt/5.15.2/mingw81_64/include/QtWidgets/QLabel \
   E:/Qt/5.15.2/mingw81_64/include/QtWidgets/QWidget \
+  E:/Qt/5.15.2/mingw81_64/include/QtWidgets/qframe.h \
+  E:/Qt/5.15.2/mingw81_64/include/QtWidgets/qlabel.h \
   E:/Qt/5.15.2/mingw81_64/include/QtWidgets/qsizepolicy.h \
   E:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtwidgets-config.h \
   E:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtwidgetsglobal.h \

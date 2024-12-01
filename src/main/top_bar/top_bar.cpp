@@ -35,7 +35,7 @@ Top_bar::~Top_bar() {
 }
 
 void Top_bar::on_go_search_clicked() {
-    qDebug() << "on_go_search_clicked";
+    emit search(ui->input->text());
     // ui->go_search->setStyleSheet("border-radius: 20%;");
 }
 
