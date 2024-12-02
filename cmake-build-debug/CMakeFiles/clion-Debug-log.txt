@@ -1,4 +1,4 @@
-D:\CLion-2024.1.6.win\bin\cmake\win\x64\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=D:/CLion-2024.1.6.win/bin/ninja/win/x64/ninja.exe -G Ninja -S C:\Users\18160\Documents\myQt\JianYiMusic -B C:\Users\18160\Documents\myQt\JianYiMusic\cmake-build-debug
--- Configuring done (0.3s)
+D:\myQt\cmake-3.27.9\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=D:/BuildTools/CLion-2024.1.6.win/bin/ninja/win/x64/ninja.exe -G Ninja -S C:\Users\18160\Documents\myQt\musicApp -B C:\Users\18160\Documents\myQt\musicApp\cmake-build-debug
+-- Configuring done (0.1s)
 -- Generating done (0.0s)
--- Build files have been written to: C:/Users/18160/Documents/myQt/JianYiMusic/cmake-build-debug
+-- Build files have been written to: C:/Users/18160/Documents/myQt/musicApp/cmake-build-debug

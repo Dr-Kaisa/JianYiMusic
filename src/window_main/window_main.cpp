@@ -174,6 +174,7 @@ void Window_main::handlePlay() {
         if (!songs->isEmpty() && songs->size() > targetSong - 1) {
             media_player->setMedia(QUrl(songs->at(++targetSong).get_path()));
             media_player->play();
+            qDebug() << "paly";
         }
     }
 }

@@ -1,17 +1,18 @@
 cmake_minimum_required(VERSION 3.27)
 project(musicApp)
 
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 #set(CMAKE_BUILD_TYPE Release)
 set(CMAKE_BUILD_TYPE Debug)
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
+#set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
 
 
-#set(CMAKE_PREFIX_PATH "D:/myQt/mingw81_64_qt")
-set(CMAKE_PREFIX_PATH "E:/Qt/5.15.2/mingw81_64")
+set(CMAKE_PREFIX_PATH "D:/myQt/mingw81_64_qt")
+#set(CMAKE_PREFIX_PATH "E:/Qt/5.15.2/mingw81_64")
 
 find_package(Qt5 COMPONENTS
         Core
@@ -53,6 +54,9 @@ add_executable(musicApp main.cpp
         src/main/default_content/default_content.ui
         include/yaml.h
 )
+if (WIN32)
+    set_target_properties(musicApp PROPERTIES WIN32_EXECUTABLE ON)
+endif ()
 # 包含 yaml-cpp 的头文件路径
 target_include_directories(musicApp PRIVATE ${CMAKE_SOURCE_DIR}/include)
 

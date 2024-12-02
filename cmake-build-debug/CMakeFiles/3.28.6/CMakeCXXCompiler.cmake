@@ -1,4 +1,4 @@
-set(CMAKE_CXX_COMPILER "D:/CLion-2024.1.6.win/bin/mingw/bin/g++.exe")
+set(CMAKE_CXX_COMPILER "D:/BuildTools/Qt/Tools/mingw1310_64/bin/c++.exe")
 set(CMAKE_CXX_COMPILER_ARG1 "")
 set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_COMPILER_VERSION "13.1.0")
@@ -22,11 +22,11 @@ set(CMAKE_CXX_SIMULATE_VERSION "")
 
 
 
-set(CMAKE_AR "D:/CLion-2024.1.6.win/bin/mingw/bin/ar.exe")
-set(CMAKE_CXX_COMPILER_AR "D:/CLion-2024.1.6.win/bin/mingw/bin/gcc-ar.exe")
-set(CMAKE_RANLIB "D:/CLion-2024.1.6.win/bin/mingw/bin/ranlib.exe")
-set(CMAKE_CXX_COMPILER_RANLIB "D:/CLion-2024.1.6.win/bin/mingw/bin/gcc-ranlib.exe")
-set(CMAKE_LINKER "D:/CLion-2024.1.6.win/bin/mingw/bin/ld.exe")
+set(CMAKE_AR "D:/BuildTools/Qt/Tools/mingw1310_64/bin/ar.exe")
+set(CMAKE_CXX_COMPILER_AR "D:/BuildTools/Qt/Tools/mingw1310_64/bin/gcc-ar.exe")
+set(CMAKE_RANLIB "D:/BuildTools/Qt/Tools/mingw1310_64/bin/ranlib.exe")
+set(CMAKE_CXX_COMPILER_RANLIB "D:/BuildTools/Qt/Tools/mingw1310_64/bin/gcc-ranlib.exe")
+set(CMAKE_LINKER "D:/BuildTools/Qt/Tools/mingw1310_64/bin/ld.exe")
 set(CMAKE_MT "")
 set(CMAKE_TAPI "CMAKE_TAPI-NOTFOUND")
 set(CMAKE_COMPILER_IS_GNUCXX 1)
@@ -79,8 +79,8 @@ endif()
 
 
 
-set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "D:/CLion-2024.1.6.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++;D:/CLion-2024.1.6.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32;D:/CLion-2024.1.6.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward;D:/CLion-2024.1.6.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include;D:/CLion-2024.1.6.win/bin/mingw/include;D:/CLion-2024.1.6.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed;D:/CLion-2024.1.6.win/bin/mingw/x86_64-w64-mingw32/include")
+set(CMAKE_CXX_IMPLICIT_INCLUDE_DIRECTORIES "D:/BuildTools/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++;D:/BuildTools/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32;D:/BuildTools/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward;D:/BuildTools/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include;D:/BuildTools/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed;D:/BuildTools/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include")
 set(CMAKE_CXX_IMPLICIT_LINK_LIBRARIES "stdc++;mingw32;gcc_s;gcc;moldname;mingwex;kernel32;pthread;advapi32;shell32;user32;kernel32;iconv;mingw32;gcc_s;gcc;moldname;mingwex;kernel32")
-set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "D:/CLion-2024.1.6.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0;D:/CLion-2024.1.6.win/bin/mingw/lib/gcc;D:/CLion-2024.1.6.win/bin/mingw/x86_64-w64-mingw32/lib;D:/CLion-2024.1.6.win/bin/mingw/lib")
+set(CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES "D:/BuildTools/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0;D:/BuildTools/Qt/Tools/mingw1310_64/lib/gcc;D:/BuildTools/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/lib;D:/BuildTools/Qt/Tools/mingw1310_64/lib")
 set(CMAKE_CXX_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")
 set(CMAKE_CXX_COMPILER_CLANG_RESOURCE_DIR "")

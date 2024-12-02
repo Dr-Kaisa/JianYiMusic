@@ -1,5 +1,5 @@
-C:/Users/18160/Documents/myQt/JianYiMusic/cmake-build-debug/CMakeFiles/musicApp.dir
-C:/Users/18160/Documents/myQt/JianYiMusic/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/18160/Documents/myQt/JianYiMusic/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/18160/Documents/myQt/JianYiMusic/cmake-build-debug/CMakeFiles/musicApp_autogen_timestamp_deps.dir
-C:/Users/18160/Documents/myQt/JianYiMusic/cmake-build-debug/CMakeFiles/musicApp_autogen.dir
+C:/Users/18160/Documents/myQt/musicApp/cmake-build-debug/CMakeFiles/musicApp.dir
+C:/Users/18160/Documents/myQt/musicApp/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/18160/Documents/myQt/musicApp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/18160/Documents/myQt/musicApp/cmake-build-debug/CMakeFiles/musicApp_autogen_timestamp_deps.dir
+C:/Users/18160/Documents/myQt/musicApp/cmake-build-debug/CMakeFiles/musicApp_autogen.dir

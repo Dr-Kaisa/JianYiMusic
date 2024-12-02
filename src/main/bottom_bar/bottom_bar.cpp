@@ -73,6 +73,8 @@ Bottom_bar::Bottom_bar(QWidget *parent) : QWidget(parent), ui(new Ui::Bottom_bar
     pausePressed = false;
     nextPressed = false;
     circlePressed = false;
+    ui->slider->setRange(0, 100); // 设置滑块范围
+    ui->slider->setValue(50); // 设置初始值为50
     connect(ui->slider, &QSlider::valueChanged, this, &Bottom_bar::valueChangedSlot);
 }
 
